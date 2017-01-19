@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="ang.js"></script>
+<link rel="stylesheet" href="w.css"> 
+<style type="text/css">
+  .na{
+    width : 200px;
+  }
+
+
+</style>
+</head>
+
+<body class="w3-container" align = "center">
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+
+
+<!-- <form action="https://linkdresources.herokuapp.com/dr"> -->
+<!-- <label class="w3-label w3-text-blue"><b>Keyword</b></label>
+<input class="w3-input w3-border" type="text" ng-model="test"> -->
+
+<!-- <input type = "button" value = "Search" class="w3-btn w3-blue"></input> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <a href = "http://www.shashikantnagar.com" class = "ui-btn">Go Back</a>
+    <h1><b>Reviews</b></h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+  <ul data-role="listview">
+  <li ng-repeat="x in names">{{ x.message }} </br><b>Commented by</b>{{x.name}}</li>
+</ul>
+<br>
+<a href = "#add" class = "ui-btn ui-btn-inline ui-btn-icon-add"  >Add Your Review</a>
+  </div>
+
+  
+</div> 
+
+
+
+
+
+<div data-role="page" data-dialog="true" id="add">
+  <div data-role="header">
+    <h1>Add Review</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+   <form action = "https://shashikantnagar.herokuapp.com/review" method = "post">
+ Name <input class = "na" type = "text" name = "nam"></br>
+ Comment <textarea rows="4" cols="50" name = "meg">
+</textarea></br>
+<input class = "na" type = "submit" value = "submit"></input> 
+</form>
+  </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("http://shashikantnagar.herokuapp.com/reviewdata")
+    
+    .then(function (response) {$scope.names = response.data;});
+    app.toDate = function(h) {
+    return ("h")
+  };
+});
+
+
+</script>
+
+</body>
+</html>
+
+
+<!-- (within 100)
+rapofit (multivitamin) : 20 (98) (calsul)
+cherol : 10 (55) (tablet)
+ -->
+
+
